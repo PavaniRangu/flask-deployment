@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Results</h1>
+
+    {% if regex_pattern %}
+    <h2>Matches for Pattern "{{ regex_pattern }}" in Test String:</h2>
+    <p><strong>{{ test_string }}</strong></p>
+    <ul>
+        {% for match in regex_matches %}
+        <li>{{ match }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if email %}
+    <h2>Email Validation Result</h2>
+    {% if email_validity %}
+    <p>The email address "{{ email }}" is valid.</p>
+    {% else %}
+    <p>The email address "{{ email }}" is not valid.</p>
+    {% endif %}
+    {% endif %}
+</body>
+</html>
